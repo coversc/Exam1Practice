@@ -136,6 +136,15 @@ def problem3a(window, point, n):
         :type point:  rg.Point
         :type n:      int
     """
+
+    line = rg.Line(point, rg.Point(point.x, point.y + 50))
+    line.thickness = 1
+    line.attach_to(window)
+
+    for k in range(n):
+        line = rg.Line(rg.Point(point.x+20, point.y+10), rg.Point())
+    
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
