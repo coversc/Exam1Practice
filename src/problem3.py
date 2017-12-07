@@ -30,8 +30,8 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    #run_test_problem3a()
-    run_test_problem3b()
+    run_test_problem3a()
+    #run_test_problem3b()
 
 
 def run_test_problem3a():
@@ -142,12 +142,12 @@ def problem3a(window, point, n):
     line.attach_to(window)
 
     for k in range(n):
-        line = rg.Line(rg.Point(point.x+20, point.y+10), rg.Point(point.x+20,
-                                                                  point.y +
-                                                                  10 + 50))
+        line = rg.Line(rg.Point(point.x+20, point.y+10), rg.Point(
+            point.x + 20, point.y + 10 + 50))
         line.thickness = line.thickness + 2
         if line.thickness > 13:
             line.thickness = 13
+    print(line.thickness)
     line.attach_to(window)
     window.render()
 
@@ -221,6 +221,7 @@ def problem3b(m, point1):
     line.attach_to(window3)
 
     for k in range(m+2):
+        probem3a()
         line = rg.Line(rg.Point(point1.x, point1.y+60), rg.Point(point1.x,
                                                                  point1.y+60))
         line.attach_to(window3)
