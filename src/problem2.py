@@ -2,7 +2,7 @@
 PRACTICE Test 1, problem 2.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Caitlin Coverstone.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
@@ -101,6 +101,20 @@ def problem2a(circle, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window:    rg.RoseWindow
     """
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.close_on_mouse_click()
+
+    upper_right = rectangle.get_upper_right_corner()
+    lower_left = rectangle.get_lower_left_corner()
+
+    rg.Line(rg.Point(upper_right.x, upper_right.y), rg.Point(lower_left.x,
+                                                             lower_left.y)
+
+    window.render()
+
+
     # ------------------------------------------------------------------
     # TODO: 2. Implement and test this function.
     #          Tests have been written for you (above).
