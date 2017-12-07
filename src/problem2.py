@@ -30,7 +30,7 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem2a()
+    #run_test_problem2a()
     run_test_problem2b()
 
 
@@ -104,14 +104,21 @@ def problem2a(circle, rectangle, window):
 
     circle.attach_to(window)
     rectangle.attach_to(window)
-    window.close_on_mouse_click()
+    window.render()
+
+    window.continue_on_mouse_click()
 
     upper_right = rectangle.get_upper_right_corner()
     lower_left = rectangle.get_lower_left_corner()
 
-    rg.Line(rg.Point(upper_right.x, upper_right.y), rg.Point(lower_left.x,
-                                                             lower_left.y)
+    line = rg.Line(rg.Point(upper_right.x, upper_right.y), rg.Point(
+        lower_left.x,
+                                                             lower_left.y))
+    line.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
 
+    circle.fill_color = rectangle.outline_color
     window.render()
 
 
@@ -186,6 +193,24 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+
+
+    rect.attach_to(win)
+    center = rect.get_center()
+    corner = rect.get_upper_right_corner()
+    corner2 = rect.get_lower_left_corner()
+    x = corner.x - corner2.x
+    y = corner2.y- corner.y
+
+
+    for k in range(1,n):
+        rectangle = rg.Rectangle(rg.Point(center.x-x/2-delta*k,
+                                          center.y+y/2+delta*k),rg.Point(
+            center.x+x/2+delta*k,center.y-y/2-delta*k))
+        rectangle.attach_to(win)
+    win.render()
+
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
