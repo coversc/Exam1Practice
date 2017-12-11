@@ -30,8 +30,8 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem3a()
-    #run_test_problem3b()
+    #run_test_problem3a()
+    run_test_problem3b()
 
 
 def run_test_problem3a():
@@ -140,16 +140,24 @@ def problem3a(window, point, n):
     line = rg.Line(point, rg.Point(point.x, point.y + 50))
     line.thickness = 1
     line.attach_to(window)
-
+    line_thickness = 0
+    count = 0
     for k in range(n):
-        line = rg.Line(rg.Point(point.x+20, point.y+10), rg.Point(
-            point.x + 20, point.y + 10 + 50))
-        line.thickness = line.thickness + 2
+        line = rg.Line(rg.Point(point.x+20*(k), point.y+10*(k)), rg.Point(
+            point.x + 20*k, point.y + 10*k + 50))
+        line.thickness = line.thickness + 2*(k)
+        print(line.thickness)
         if line.thickness > 13:
             line.thickness = 13
+        count = count + line.thickness
+        line.attach_to(window)
+        window.render()
+
     print(line.thickness)
     line.attach_to(window)
+
     window.render()
+    return count
 
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
@@ -217,19 +225,18 @@ def problem3b(m, point1):
     """
 
     window3 = rg.RoseWindow(400, 650)
-    line = rg.Line(point1.x, point1.y)
-    line.attach_to(window3)
+    line_thickness = 0
 
-    for k in range(m+2):
-        probem3a()
-        line = rg.Line(rg.Point(point1.x, point1.y+60), rg.Point(point1.x,
-                                                                 point1.y+60))
-        line.attach_to(window3)
+    for k in range(m):
+        count = problem3a(window3, rg.Point(point1.x, point1.y+60*k), 3+ 2*k)
+        line_thickness = count + line_thickness
 
-    window3.render()
+    return line_thickness
+
+
 
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
