@@ -13,7 +13,6 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 
 import rosegraphics as rg
 
-
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem0a()
@@ -39,6 +38,7 @@ def is_prime(n):
             return False
 
     return True
+
     # ------------------------------------------------------------------
     # Students:
     #   Do NOT touch the above  is_prime  function - it has no TO DO.
@@ -241,7 +241,6 @@ def problem0b(n):
     ####################################################################
     # ------------------------------------------------------------------
 
-
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
     print()
@@ -314,9 +313,6 @@ def problem0c(circle, n, window):
         window.render(0.5)
 
         x = x+ (2 * radius)
-
-
-
 
     # ------------------------------------------------------------------
     # DONE: 4. Implement and test this function.
